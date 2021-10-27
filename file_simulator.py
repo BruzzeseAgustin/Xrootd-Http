@@ -88,6 +88,7 @@ def make_file(file_name, size = 1000000):
     file_create.seek(size)
     file_create.write(b"\0")
     file_create.close ()
+    os.chmod(file_name, 777)
     
 def make_symb_link(s_file, d_file='/data_transfer'):
     # Create a symbolic link
@@ -518,3 +519,4 @@ if __name__ == '__main__':
                                  ", %s, %s);")
 
                     # connect(config, add_entry, val)  
+
