@@ -1,4 +1,4 @@
-import os,random,re,datetime,logging,errno,sys,pathlib
+import os,random,re,datetime,logging,errno,sys
 import json, time, mysql.connector
 from mysql.connector import errorcode
 
@@ -83,7 +83,7 @@ def make_path(lfn):
         print(path_file)
         os.makedirs(path_file)
 
-def make_file(file_name, dest, size = 1000000):
+def make_file(file_name, size = 1000000):
     file_create = open(file_name, "wb")
     file_create.seek(size)
     file_create.write(b"\0")
@@ -448,7 +448,7 @@ if __name__ == '__main__':
             file = os.path.join(rootdir, random_file)
 
             make_path(file) # this will go out
-            make_file(file, size_file)  
+            make_file(file, size = size_file)  
 
             print('file %s of %s created at %s' %(file, human_read_to_byte(size_file), rootdir))
     
@@ -518,4 +518,3 @@ if __name__ == '__main__':
                                  ", %s, %s);")
 
                     # connect(config, add_entry, val)  
-
